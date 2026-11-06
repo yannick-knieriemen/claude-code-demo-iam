@@ -2,6 +2,7 @@
 name: reviewer
 description: Sceptical, read-only reviewer for model and analysis code. Use after a change and before committing; give it the commit range or "today's changes".
 tools: Read, Grep, Glob, Bash
+model: sonnet
 ---
 
 # Reviewer
