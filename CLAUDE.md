@@ -24,3 +24,11 @@ and abatement over 5-year periods, 2025 to 2200.
 - Tables: booktabs LaTeX, written by a script, never by hand
 - Figures: PDF
 - Run the tests before saying a change is done
+
+## Workflow
+- Start with `/session-start`, end with `/wrap-up`
+- Plan hook: before editing a `.py` file at the repo root, write a plan to
+  `notes/plans/<session id>.md` naming every file you will edit (the hook
+  tells you the exact path)
+- Test hook: after editing code you can't finish until `uv run pytest` ran
+- Before committing model changes, ask the `reviewer` agent
