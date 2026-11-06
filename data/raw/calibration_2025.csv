@@ -1,0 +1,7 @@
+variable,value,unit,note
+population,8.2,billion people,"UN World Population Prospects 2024, rounded"
+gross_output,115,trillion USD,"world GDP at market exchange rates, rounded"
+capital,320,trillion USD,"capital-output ratio of about 2.8, as in DICE"
+emissions,38,GtCO2 per year,"fossil and industry CO2, Global Carbon Budget, rounded"
+carbon_stock,900,GtC,"about 424 ppm times 2.124 GtC/ppm"
+temperature,1.3,degC above 1850-1900,"observed warming, rounded"

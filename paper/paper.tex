@@ -1,0 +1,31 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\title{Optimal Abatement in a Toy Climate-Economy Model}
+\author{Demo Author \and Coauthor}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+We solve a stripped-down DICE-style model in 5-year periods from 2025 to 2300
+and report results up to 2200. A social planner chooses the abatement rate to
+maximise discounted utility; the savings rate is fixed. We compare business as
+usual (no abatement) with the optimal policy.
+
+\section{Model}
+Gross output is Cobb-Douglas in capital and labour,
+$Y_t = A_t K_t^{\alpha} L_t^{1-\alpha}$. Emissions are
+$E_t = \sigma_t (1-\mu_t) Y_t$, where $\mu_t$ is the abatement rate. Carbon
+accumulates in a single box and warming is
+$T_t = \lambda \log_2(M_t / M_{\text{pre}})$. Damages are
+$\Omega(T_t) = \psi T_t^2$ and abatement costs $\theta_{1,t}\mu_t^{\theta_2}$, both
+as shares of gross output.
+
+\section{Results}
+% Scenario table goes here.
+
+\end{document}
