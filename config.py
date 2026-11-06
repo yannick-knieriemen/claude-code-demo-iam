@@ -7,7 +7,7 @@ Initial conditions for 2025 come from ``data/raw/calibration_2025.csv``.
 """
 
 import csv
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -110,4 +110,9 @@ BASE = Params()
 SCENARIOS: list[Scenario] = [
     Scenario("bau", BASE, optimise_abatement=False),
     Scenario("optimal", BASE, optimise_abatement=True),
+    Scenario(
+        "high-damage",
+        replace(BASE, damage_coef=2 * BASE.damage_coef),
+        optimise_abatement=True,
+    ),
 ]
