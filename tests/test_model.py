@@ -34,3 +34,11 @@ def test_abatement_between_zero_and_one(
 
 def test_optimal_peak_below_bau(paths: dict[str, dict[str, np.ndarray]]) -> None:
     assert paths["optimal"]["temperature"].max() < paths["bau"]["temperature"].max()
+
+
+def test_capital_accumulation() -> None:
+    p = BASE
+    path = simulate(p, np.zeros(p.n_periods))
+    investment = p.period_years * p.savings_rate * path["output_net"][0]
+    expected = (1 - p.depreciation_per_period) * path["capital"][0] + investment
+    assert path["capital"][1] == pytest.approx(expected)

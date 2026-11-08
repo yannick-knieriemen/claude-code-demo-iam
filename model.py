@@ -95,7 +95,6 @@ def simulate(p: Params, abatement: np.ndarray) -> dict[str, np.ndarray]:
     n, dt = p.n_periods, p.period_years
     ex = exogenous_paths(p)
     sensitivity = warming_per_doubling(p)
-    depreciation_per_period = 1 - (1 - p.depreciation) ** dt
     carbon_persistence = (1 - p.carbon_decay) ** dt
     carbon_per_emission = p.carbon_retained * dt * p.gtc_per_gtco2
 
@@ -114,7 +113,7 @@ def simulate(p: Params, abatement: np.ndarray) -> dict[str, np.ndarray]:
         y = tfp[i] * k**p.capital_share * labour[i]
         y_net = y * (1 - damage_share(temp, p) - cost[i])
         e = intensity[i] * (1 - mu[i]) * y
-        k = (1 - depreciation_per_period) * k + dt * p.savings_rate * y_net
+        k = (1 - p.depreciation_per_period) * k + dt * p.savings_rate * y_net
         m = (
             p.carbon_preindustrial
             + carbon_persistence * (m - p.carbon_preindustrial)

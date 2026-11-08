@@ -61,7 +61,7 @@ class Params:
     # Production
     capital_share: float = 0.3
     savings_rate: float = 0.24  # close to the optimum when savings are a choice
-    depreciation: float = 0.1  # annual
+    depreciation_per_period: float = 0.1  # as in DICE
     tfp_growth0: float = 0.076  # per period, falls over time
     tfp_growth_decline: float = 0.005  # annual
 
