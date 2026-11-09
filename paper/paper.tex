@@ -14,7 +14,8 @@
 We solve a stripped-down DICE-style model in 5-year periods from 2025 to 2300
 and report results up to 2200. A social planner chooses the abatement rate to
 maximise discounted utility; the savings rate is fixed. We compare business as
-usual (no abatement) with the optimal policy.
+usual (no abatement) with the optimal policy, and with an optimal policy when
+the damage coefficient is doubled.
 
 \section{Model}
 Gross output is Cobb-Douglas in capital and labour,
@@ -26,6 +27,14 @@ $\Omega(T_t) = \psi T_t^2$ and abatement costs $\theta_{1,t}\mu_t^{\theta_2}$, b
 as shares of gross output.
 
 \section{Results}
-% Scenario table goes here.
+Table~\ref{tab:scenarios} summarises the three scenarios. Consumption loss is
+climate damages plus abatement costs as a share of gross output.
+
+\begin{table}[ht]
+\centering
+\caption{Scenario results}
+\label{tab:scenarios}
+\input{../results/tables/scenarios.tex}
+\end{table}
 
 \end{document}

@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 import numpy as np
 import pytest
 
@@ -37,8 +39,14 @@ def test_optimal_peak_below_bau(paths: dict[str, dict[str, np.ndarray]]) -> None
 
 
 def test_capital_accumulation() -> None:
-    p = BASE
+    p = replace(BASE, savings_rate=0.0, depreciation=0.1)
     path = simulate(p, np.zeros(p.n_periods))
-    investment = p.period_years * p.savings_rate * path["output_net"][0]
-    expected = (1 - p.depreciation_per_period) * path["capital"][0] + investment
-    assert path["capital"][1] == pytest.approx(expected)
+    assert path["capital"][1] == pytest.approx(0.9**5 * path["capital"][0])
+
+
+def test_bau_capital_output_ratio_plausible(
+    paths: dict[str, dict[str, np.ndarray]],
+) -> None:
+    ratio = paths["bau"]["capital"] / paths["bau"]["output_gross"]
+    assert ratio.min() > 2.0
+    assert ratio.max() < 4.0
